@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WipetKu — Company Jawawik Terezeki</title>
+
+<style>
+:root {
+    --bg:#080d18;
+    --surface:#111a29;
+    --surface2:#172337;
+    --border:#ffffff0c;
+    --text:#edf4ff;
+    --muted:#8493aa;
+    --cyan:#75eee9;
+    --green:#a1ffcf;
+    --blue:#8a9cff;
+    --red:#ff919b;
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    font-family:"Segoe UI",sans-serif;
+    background:
+        radial-gradient(ellipse at 10% 0%,#143347 0%,transparent 40%),
+        radial-gradient(ellipse at 100% 90%,#202044 0%,transparent 40%),
+        var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+button,input {
+    font:inherit;
+}
+
+button {
+    cursor:pointer;
+    border:none;
+}
+
+svg {
+    width:21px;
+    height:21px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.7;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.hidden {
+    display:none!important;
+}
+
+.app {
+    max-width:1150px;
+    margin:auto;
+    padding:25px 30px 50px;
+}
+
+/* LOGO */
+
+.logo {
+    width:58px;
+    height:58px;
+    display:grid;
+    place-items:center;
+    border-radius:19px;
+    background:linear-gradient(135deg,#142b39,#18213b);
+    border:1px solid #75eee933;
+    box-shadow:0 0 28px #75eee91a;
+}
+
+.logo svg {
+    width:39px;
+    height:39px;
+}
+
+.brand .logo {
+    width:44px;
+    height:44px;
+    border-radius:14px;
+}
+
+.brand .logo svg {
+    width:31px;
+    height:31px;
+}
+
+/* LOGIN */
+
+.login-screen {
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.login-box {
+    width:100%;
+    max-width:420px;
+    padding:35px;
+    border:1px solid #ffffff12;
+    border-radius:26px;
+    background:linear-gradient(145deg,#142235,#0d1422);
+    box-shadow:0 30px 100px #0005;
+}
+
+.login-brand {
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.login-brand .logo {
+    margin:0 auto 16px;
+}
+
+.login-brand h1 {
+    font-size:29px;
+    letter-spacing:-1px;
+}
+
+.login-brand h1 span {
+    color:var(--cyan);
+}
+
+.login-brand p {
+    margin-top:9px;
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:1.5px;
+}
+
+.login-subtitle {
+    font-size:13px;
+    color:#a1b0c6;
+    margin-bottom:24px;
+    text-align:center;
+}
+
+.field {
+    margin-bottom:17px;
+}
+
+.field label {
+    display:block;
+    color:#a3b2c8;
+    font-size:12px;
+    margin-bottom:9px;
+}
+
+.field input {
+    width:100%;
+    padding:14px 15px;
+    border:1px solid #ffffff12;
+    border-radius:13px;
+    background:#090f1b;
+    color:white;
+    outline:none;
+    transition:.2s;
+}
+
+.field input:focus {
+    border-color:#75eee966;
+    box-shadow:0 0 0 3px #75eee90b;
+}
+
+.primary {
+    width:100%;
+    padding:14px;
+    border-radius:13px;
+    background:linear-gradient(110deg,#8ffff0,#a1ffcf);
+    color:#07151b;
+    font-weight:750;
+    transition:.2s;
+}
+
+.primary:hover {
+    filter:brightness(1.08);
+    box-shadow:0 0 25px #75eee922;
+}
+
+.login-message {
+    min-height:18px;
+    margin-top:14px;
+    font-size:12px;
+    color:var(--red);
+    text-align:center;
+}
+
+.login-note {
+    margin-top:22px;
+    text-align:center;
+    color:#61718a;
+    font-size:11px;
+    line-height:1.7;
+}
+
+/* HEADER */
+
+header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:34px;
+}
+
+.brand {
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-name {
+    font-size:22px;
+    font-weight:750;
+    letter-spacing:-.8px;
+}
+
+.brand-name span {
+    color:var(--cyan);
+}
+
+.company-name {
+    font-size:10px;
+    color:var(--muted);
+    letter-spacing:1px;
+    margin-top:4px;
+}
+
+.header-right {
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.icon-button {
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:14px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    color:#b6c5da;
+}
+
+.icon-button:hover {
+    color:var(--cyan);
+    border-color:#75eee944;
+}
+
+.profile {
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:linear-gradient(135deg,#a0fff0,#8297ff);
+    color:#07131d;
+    font-weight:800;
+}
+
+.greeting {
+    margin-bottom:24px;
+}
+
+.greeting p {
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:7px;
+}
+
+.greeting h1 {
+    font-size:28px;
+    letter-spacing:-.8px;
+    font-weight:650;
+}
+
+/* DASHBOARD */
+
+.dashboard {
+    display:grid;
+    grid-template-columns:1.45fr 1fr;
+    gap:22px;
+}
+
+.balance-card {
+    position:relative;
+    overflow:hidden;
+    min-height:250px;
+    border-radius:25px;
+    padding:28px;
+    background:
+        radial-gradient(ellipse at 85% 15%,#8ffff022,transparent 40%),
+        linear-gradient(120deg,#142a39,#11192d 75%);
+    border:1px solid #9bffff17;
+    box-shadow:0 15px 60px #00000018;
+}
+
+.balance-card::after {
+    content:"";
+    position:absolute;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    border:1px solid #8bffff0c;
+    right:-95px;
+    bottom:-150px;
+    box-shadow:0 0 0 30px #8bffff05,
+               0 0 0 60px #8bffff04;
+}
+
+.card-top {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+    z-index:1;
+}
+
+.card-label {
+    color:#a7b7ca;
+    font-size:14px;
+}
+
+.card-top svg {
+    color:var(--cyan);
+}
+
+.balance {
+    position:relative;
+    z-index:1;
+    margin-top:25px;
+    font-size:clamp(30px,4vw,43px);
+    font-weight:700;
+    letter-spacing:-1.5px;
+}
+
+.card-bottom {
+    position:relative;
+    z-index:1;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:29px;
+}
+
+.card-bottom p {
+    font-size:11px;
+    color:#8194aa;
+    margin-bottom:5px;
+}
+
+.card-bottom strong {
+    font-size:13px;
+}
+
+.card-chip {
+    width:42px;
+    height:30px;
+    border:1px solid #9cfff044;
+    border-radius:8px;
+    background:linear-gradient(135deg,#8dfff122,#6689ff22);
+}
+
+.side-panel {
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.mini-card {
+    flex:1;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:23px;
+    background:linear-gradient(145deg,#121c2d,#101725);
+}
+
+.mini-title {
+    color:var(--muted);
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.mini-value {
+    margin-top:14px;
+    font-size:24px;
+    font-weight:700;
+}
+
+.mini-value span {
+    font-size:12px;
+    color:var(--green);
+}
+
+.progress {
+    height:5px;
+    background:#263346;
+    border-radius:10px;
+    margin-top:15px;
+    overflow:hidden;
+}
+
+.progress div {
+    width:68%;
+    height:100%;
+    background:linear-gradient(90deg,#61e8ed,#9bffcb);
+    border-radius:10px;
+}
+
+/* ACTIONS */
+
+.quick-actions {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin:26px 0;
+}
+
+.action {
+    background:#111a29;
+    border:1px solid var(--border);
+    border-radius:19px;
+    min-height:108px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:11px;
+    color:#c9d5e7;
+    transition:.2s;
+}
+
+.action:hover {
+    background:#18283a;
+    border-color:#61e8ed55;
+    transform:translateY(-2px);
+}
+
+.action-icon {
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:14px;
+    background:#61e8ed12;
+    color:var(--cyan);
+}
+
+.action span {
+    font-size:13px;
+    font-weight:550;
+}
+
+/* CONTENT */
+
+.content-grid {
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:22px;
+}
+
+.panel {
+    border:1px solid var(--border);
+    border-radius:23px;
+    background:#101827d9;
+    padding:25px;
+}
+
+.panel-header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:24px;
+}
+
+.panel-header h2 {
+    font-size:17px;
+    font-weight:650;
+}
+
+.panel-header button {
+    background:transparent;
+    color:var(--cyan);
+    font-size:12px;
+}
+
+.transaction {
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:14px 0;
+    border-bottom:1px solid #ffffff08;
+}
+
+.transaction:last-child {
+    border-bottom:none;
+}
+
+.transaction-icon {
+    width:43px;
+    height:43px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    background:#1c293c;
+    color:#a6c3dc;
+    flex-shrink:0;
+}
+
+.transaction-info {
+    flex:1;
+    min-width:0;
+}
+
+.transaction-info strong {
+    display:block;
+    font-size:13px;
+    font-weight:600;
+}
+
+.transaction-info small {
+    display:block;
+    color:var(--muted);
+    font-size:11px;
+    margin-top:5px;
+}
+
+.transaction-amount {
+    font-size:13px;
+    font-weight:650;
+    white-space:nowrap;
+}
+
+.income {
+    color:var(--green);
+}
+
+.expense {
+    color:#f1f5ff;
+}
+
+.empty {
+    color:var(--muted);
+    text-align:center;
+    padding:25px 0;
+    font-size:13px;
+}
+
+.promo {
+    min-height:180px;
+    position:relative;
+    overflow:hidden;
+    border-radius:19px;
+    padding:22px;
+    background:linear-gradient(125deg,#1d3749,#202449);
+    border:1px solid #8cf7ff14;
+}
+
+.promo small {
+    color:var(--cyan);
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+.promo h3 {
+    margin-top:13px;
+    font-size:21px;
+    line-height:1.35;
+}
+
+.promo p {
+    margin-top:8px;
+    color:#a6b6ce;
+    font-size:12px;
+    line-height:1.7;
+}
+
+.promo-circle {
+    position:absolute;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    border:1px solid #a8faff22;
+    right:-40px;
+    bottom:-55px;
+    box-shadow:0 0 0 18px #a8faff08,
+               0 0 0 36px #a8faff05;
+}
+
+footer {
+    text-align:center;
+    color:#526179;
+    font-size:11px;
+    margin-top:35px;
+}
+
+/* MODALS */
+
+.overlay {
+    position:fixed;
+    inset:0;
+    background:#030711bb;
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:10;
+}
+
+.overlay.show {
+    display:flex;
+}
+
+.modal {
+    width:100%;
+    max-width:410px;
+    background:#111b2b;
+    border:1px solid #ffffff12;
+    border-radius:24px;
+    padding:27px;
+    box-shadow:0 25px 100px #0008;
+    animation:appear .2s ease;
+}
+
+@keyframes appear {
+    from {opacity:0;transform:translateY(12px)}
+    to {opacity:1;transform:translateY(0)}
+}
+
+.modal-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:24px;
+}
+
+.modal-header h2 {
+    font-size:20px;
+}
+
+.close {
+    background:#ffffff08;
+    color:#aabbd1;
+    width:34px;
+    height:34px;
+    border-radius:11px;
+    display:grid;
+    place-items:center;
+}
+
+.message {
+    font-size:12px;
+    color:var(--red);
+    margin-top:12px;
+    min-height:15px;
+}
+
+/* RECEIPT */
+
+.receipt-modal {
+    max-width:400px;
+    padding:0;
+    overflow:hidden;
+}
+
+.receipt-top {
+    text-align:center;
+    padding:32px 24px 26px;
+    background:
+        radial-gradient(circle at 50% 0%,#61e8ed18,transparent 70%),
+        #111b2b;
+}
+
+.receipt-check {
+    width:55px;
+    height:55px;
+    display:grid;
+    place-items:center;
+    margin:0 auto 16px;
+    border-radius:50%;
+    background:#9bffcb15;
+    border:1px solid #9bffcb55;
+    color:#9bffcb;
+    font-size:28px;
+    box-shadow:0 0 25px #9bffcb15;
+}
+
+.receipt-top h2 {
+    font-size:20px;
+    margin-bottom:7px;
+}
+
+.receipt-top p {
+    color:#8492a9;
+    font-size:12px;
+}
+
+.receipt-amount {
+    margin-top:22px;
+    font-size:32px;
+    font-weight:750;
+    letter-spacing:-1px;
+}
+
+.receipt-details {
+    padding:10px 25px;
+}
+
+.receipt-details div {
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:14px 0;
+    border-bottom:1px dashed #ffffff12;
+    font-size:12px;
+}
+
+.receipt-details span {
+    color:#8492a9;
+}
+
+.receipt-details strong {
+    text-align:right;
+    font-weight:600;
+    overflow-wrap:anywhere;
+}
+
+.success-status {
+    color:#9bffcb;
+}
+
+.receipt-actions {
+    padding:15px 25px 25px;
+}
+
+.receipt-close {
+    width:100%;
+    padding:13px;
+    margin-top:10px;
+    border-radius:13px;
+    background:#ffffff08;
+    border:1px solid #ffffff10;
+    color:#c9d5e7;
+}
+
+@media(max-width:760px) {
+    .app {
+        padding:20px 17px 35px;
+    }
+
+    header {
+        margin-bottom:28px;
+    }
+
+    .dashboard,
+    .content-grid {
+        grid-template-columns:1fr;
+    }
+
+    .side-panel {
+        flex-direction:row;
+    }
+
+    .mini-card {
+        padding:18px;
+    }
+
+    .quick-actions {
+        gap:9px;
+    }
+
+    .action {
+        min-height:95px;
+        border-radius:16px;
+    }
+
+    .action span {
+        font-size:11px;
+    }
+
+    .panel {
+        padding:20px;
+    }
+
+    .balance-card {
+        padding:24px;
+    }
+
+    .greeting h1 {
+        font-size:24px;
+    }
+}
+
+@media(max-width:380px) {
+    .side-panel {
+        flex-direction:column;
+    }
+
+    .quick-actions {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .login-box {
+        padding:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<section class="login-screen" id="loginScreen">
+    <div class="login-box">
+
+        <div class="login-brand">
+            <div class="logo">
+                <svg viewBox="0 0 48 48">
+                    <path d="M5 12h38v24H5z"
+                          stroke="#75eee9"
+                          stroke-width="2.5"/>
+                    <path d="M10 12V8h28v4"
+                          stroke="#75eee9"
+                          stroke-width="2.5"/>
+                    <path d="M12 18l6 13 6-9 6 9 6-13"
+                          stroke="#a1ffcf"
+                          stroke-width="3"/>
+                    <circle cx="38" cy="24" r="2" fill="#a1ffcf"/>
+                </svg>
+            </div>
+
+            <h1>Wipet<span>Ku</span></h1>
+            <p>COMPANY JAWAWIK TEREZEKI</p>
+        </div>
+
+        <div class="login-subtitle">
+            Masuk ke akun WipetKu kamu
+        </div>
+
+        <form id="loginForm">
+            <div class="field">
+                <label>Username</label>
+                <input id="loginUsername" placeholder="Masukkan username" required>
+            </div>
+
+            <div class="field">
+                <label>Password</label>
+                <input id="loginPassword" type="password" placeholder="Masukkan password" required>
+            </div>
+
+            <button class="primary" type="submit">Masuk ke WipetKu</button>
+
+            <div class="login-message" id="loginMessage"></div>
+        </form>
+
+        <div class="login-note">
+            WipetKu · Your balance, your space.<br>
+            Akun dan saldo tersimpan di browser ini.
+        </div>
+    </div>
+</section>
+
+<!-- DASHBOARD -->
+
+<div class="app hidden" id="dashboard">
+
+<header>
+    <div class="brand">
+        <div class="logo">
+            <svg viewBox="0 0 48 48">
+                <path d="M5 12h38v24H5z"
+                      stroke="#75eee9"
+                      stroke-width="2.5"/>
+                <path d="M10 12V8h28v4"
+                      stroke="#75eee9"
+                      stroke-width="2.5"/>
+                <path d="M12 18l6 13 6-9 6 9 6-13"
+                      stroke="#a1ffcf"
+                      stroke-width="3"/>
+                <circle cx="38" cy="24" r="2" fill="#a1ffcf"/>
+            </svg>
+        </div>
+
+        <div>
+            <div class="brand-name">Wipet<span>Ku</span></div>
+            <div class="company-name">COMPANY JAWAWIK TEREZEKI</div>
+        </div>
+    </div>
+
+    <div class="header-right">
+        <button class="icon-button" onclick="logout()" title="Keluar">
+            <svg viewBox="0 0 24 24">
+                <path d="M10 17l5-5-5-5"/>
+                <path d="M15 12H3"/>
+                <path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7"/>
+            </svg>
+        </button>
+
+        <div class="profile" id="profileInitial">W</div>
+    </div>
+</header>
+
+<div class="greeting">
+    <p>Selamat datang kembali,</p>
+    <h1>Hai, <span id="displayUsername">Wipet User</span> <span style="color:var(--cyan)">✦</span></h1>
+</div>
+
+<div class="dashboard">
+
+    <div class="balance-card">
+        <div class="card-top">
+            <span class="card-label">Total saldo WipetKu</span>
+            <svg viewBox="0 0 24 24">
+                <path d="M3 7h18v12H3z"/>
+                <path d="M3 7l3-4h15v4"/>
+                <path d="M16 13h5"/>
+            </svg>
+        </div>
+
+        <div class="balance" id="balance">Rp 250.000</div>
+
+        <div class="card-bottom">
+            <div>
+                <p>WIPET ACCOUNT</p>
+                <strong id="account">WP-0826-001</strong>
+            </div>
+            <div class="card-chip"></div>
+        </div>
+    </div>
+
+    <div class="side-panel">
+        <div class="mini-card">
+            <div class="mini-title">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 3v18h18"/>
+                    <path d="M7 14l4-4 4 3 5-7"/>
+                </svg>
+                Aktivitas bulan ini
+            </div>
+            <div class="mini-value" id="activity">0 <span>transaksi</span></div>
+            <div class="progress"><div></div></div>
+        </div>
+
+        <div class="mini-card">
+            <div class="mini-title">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 5v14M5 12h14"/>
+                </svg>
+                Total masuk
+            </div>
+            <div class="mini-value" id="income">Rp 0</div>
+        </div>
+    </div>
+
+</div>
+
+<div class="quick-actions">
+
+    <button class="action" onclick="openModal('transfer')">
+        <div class="action-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M7 7h14M17 3l4 4-4 4"/>
+                <path d="M17 17H3m4-4-4 4 4 4"/>
+            </svg>
+        </div>
+        <span>Transfer</span>
+    </button>
+
+    <button class="action" onclick="openModal('topup')">
+        <div class="action-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 5v14M5 12h14"/>
+                <circle cx="12" cy="12" r="9"/>
+            </svg>
+        </div>
+        <span>Top Up</span>
+    </button>
+
+    <button class="action" onclick="openModal('pay')">
+        <div class="action-icon">
+            <svg viewBox="0 0 24 24">
+                <rect x="4" y="4" width="16" height="16" rx="3"/>
+                <path d="M8 8h3v3H8zM14 8h2M14 12h2M8 14h3v2H8z"/>
+            </svg>
+        </div>
+        <span>Bayar</span>
+    </button>
+
+    <button class="action" onclick="openModal('request')">
+        <div class="action-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 5v14M5 12h14"/>
+                <path d="M5 5h14v14H5z"/>
+            </svg>
+        </div>
+        <span>Minta Saldo</span>
+    </button>
+
+</div>
+
+<div class="content-grid">
+
+    <section class="panel">
+        <div class="panel-header">
+            <h2>Aktivitas terbaru</h2>
+            <button onclick="clearHistory()">Bersihkan</button>
+        </div>
+
+        <div id="transactions">
+            <div class="empty">Belum ada aktivitas.</div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-header">
+            <h2>WipetKu Space</h2>
+            <span style="color:var(--cyan);font-size:12px">✦ Personal</span>
+        </div>
+
+        <div class="promo">
+            <small>YOUR DIGITAL SPACE</small>
+            <h3>Urus saldo,<br>lebih simpel.</h3>
+            <p>Transfer internal, catatan transaksi, dan pengelolaan saldo dalam satu tempat.</p>
+            <div class="promo-circle"></div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    WipetKu · Company Jawawik Terezeki
+</footer>
+
+</div>
+
+<!-- TRANSACTION MODAL -->
+
+<div class="overlay" id="overlay" onclick="outsideClose(event)">
+    <div class="modal">
+
+        <div class="modal-header">
+            <h2 id="modalTitle">Transfer</h2>
+
+            <button class="close" onclick="closeModal()">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18 6 6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <form id="form">
+
+            <div class="field">
+                <label id="nameLabel">Nama penerima</label>
+                <input id="name" placeholder="Masukkan nama" autocomplete="off">
+            </div>
+
+            <div class="field">
+                <label>Jumlah saldo</label>
+                <input
+                    id="amount"
+                    type="text"
+                    inputmode="numeric"
+                    placeholder="Rp 0"
+                    autocomplete="off"
+                    required
+                >
+            </div>
+
+            <button class="primary" id="submitButton" type="submit">
+                Lanjutkan
+            </button>
+
+            <div class="message" id="message"></div>
+
+        </form>
+    </div>
+</div>
+
+<!-- RECEIPT -->
+
+<div class="overlay" id="receiptOverlay" onclick="receiptOutsideClose(event)">
+    <div class="modal receipt-modal">
+
+        <div class="receipt-top">
+            <div class="receipt-check">✓</div>
+            <h2 id="receiptTitle">Transaksi Berhasil</h2>
+            <p>Company Jawawik Terezeki</p>
+            <div class="receipt-amount" id="receiptAmount">Rp 0</div>
+        </div>
+
+        <div class="receipt-details">
+            <div>
+                <span>Status</span>
+                <strong class="success-status">Berhasil</strong>
+            </div>
+
+            <div>
+                <span>Jenis transaksi</span>
+                <strong id="receiptType">Transfer</strong>
+            </div>
+
+            <div>
+                <span>Nama penerima</span>
+                <strong id="receiptName">-</strong>
+            </div>
+
+            <div>
+                <span>Nominal</span>
+                <strong id="receiptNominal">Rp 0</strong>
+            </div>
+
+            <div>
+                <span>Tanggal</span>
+                <strong id="receiptDate">-</strong>
+            </div>
+
+            <div>
+                <span>ID transaksi</span>
+                <strong id="receiptId">-</strong>
+            </div>
+        </div>
+
+        <div class="receipt-actions">
+            <button class="primary" onclick="downloadReceipt()">
+                Simpan Bukti
+            </button>
+
+            <button class="receipt-close" onclick="closeReceipt()">
+                Selesai
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+const STORAGE_KEY = "wipetku_data_v1";
+
+let username = "";
+let balance = 250000;
+let totalIncome = 0;
+let transactions = [];
+let currentReceipt = null;
+
+const format = value =>
+    new Intl.NumberFormat("id-ID", {
+        style:"currency",
+        currency:"IDR",
+        maximumFractionDigits:0
+    }).format(value);
+
+function saveData() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        username,
+        balance,
+        totalIncome,
+        transactions
+    }));
+}
+
+function loadData() {
+    try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+        if (!saved) return;
+
+        username = saved.username || "";
+        balance = Number(saved.balance) || 0;
+        totalIncome = Number(saved.totalIncome) || 0;
+        transactions = Array.isArray(saved.transactions)
+            ? saved.transactions
+            : [];
+
+    } catch {
+        balance = 250000;
+        totalIncome = 0;
+        transactions = [];
+    }
+}
+
+function showDashboard() {
+    document.getElementById("loginScreen").classList.add("hidden");
+    document.getElementById("dashboard").classList.remove("hidden");
+
+    document.getElementById("displayUsername").textContent = username;
+    document.getElementById("profileInitial").textContent =
+        username.charAt(0).toUpperCase();
+
+    render();
+}
+
+document.getElementById("loginForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const inputUsername =
+        document.getElementById("loginUsername").value.trim();
+
+    const inputPassword =
+        document.getElementById("loginPassword").value;
+
+    const message = document.getElementById("loginMessage");
+
+    if (inputUsername.length < 3 || inputPassword.length < 4) {
+        message.textContent =
+            "Username minimal 3 karakter dan password minimal 4 karakter.";
+        return;
+    }
+
+    username = inputUsername;
+
+    loadData();
+
+    if (!localStorage.getItem(STORAGE_KEY)) {
+        balance = 250000;
+        totalIncome = 0;
+        transactions = [];
+    }
+
+    saveData();
+    showDashboard();
+});
+
+function logout() {
+    document.getElementById("dashboard").classList.add("hidden");
+    document.getElementById("loginScreen").classList.remove("hidden");
+    document.getElementById("loginPassword").value = "";
+}
+
+function render() {
+    document.getElementById("balance").textContent = format(balance);
+    document.getElementById("income").textContent = format(totalIncome);
+
+    document.getElementById("activity").innerHTML =
+        transactions.length + ' <span>transaksi</span>';
+
+    const container = document.getElementById("transactions");
+
+    if (!transactions.length) {
+        container.innerHTML =
+            '<div class="empty">Belum ada aktivitas.</div>';
+        return;
+    }
+
+    container.innerHTML = transactions.map(tx => `
+        <div class="transaction">
+            <div class="transaction-icon">
+                ${tx.type === "in" ? "↓" : "↑"}
+            </div>
+
+            <div class="transaction-info">
+                <strong>${escapeHTML(tx.name)}</strong>
+                <small>${escapeHTML(tx.date)}</small>
+            </div>
+
+            <div class="transaction-amount ${tx.type === "in" ? "income" : "expense"}">
+                ${tx.type === "in" ? "+" : "-"}${format(tx.amount)}
+            </div>
+        </div>
+    `).join("");
+}
+
+function escapeHTML(text) {
+    return String(text).replace(/[&<>"']/g, char => ({
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+    })[char]);
+}
+
+/* NOMINAL OTOMATIS */
+
+const amountInput = document.getElementById("amount");
+
+amountInput.addEventListener("input", function() {
+    const numbers = this.value.replace(/\D/g, "");
+
+    this.value = numbers
+        ? Number(numbers).toLocaleString("id-ID")
+        : "";
+});
+
+/* MODAL */
+
+function openModal(type) {
+    const titles = {
+        transfer:"Transfer saldo",
+        topup:"Top Up saldo",
+        pay:"Pembayaran",
+        request:"Minta saldo"
+    };
+
+    const labels = {
+        transfer:"Nama penerima",
+        topup:"Sumber saldo",
+        pay:"Nama pembayaran",
+        request:"Nama pengirim"
+    };
+
+    document.getElementById("modalTitle").textContent = titles[type];
+    document.getElementById("nameLabel").textContent = labels[type];
+
+    document.getElementById("name").value = "";
+    document.getElementById("amount").value = "";
+    document.getElementById("message").textContent = "";
+
+    document.getElementById("submitButton").textContent =
+        type === "request" ? "Buat permintaan" : "Lanjutkan";
+
+    document.getElementById("form").dataset.type = type;
+    document.getElementById("overlay").classList.add("show");
+}
+
+function closeModal() {
+    document.getElementById("overlay").classList.remove("show");
+}
+
+function outsideClose(event) {
+    if (event.target.id === "overlay") closeModal();
+}
+
+/* TRANSACTIONS */
+
+function addTransaction(name, amount, type) {
+    transactions.unshift({
+        name,
+        amount,
+        type,
+        date:new Date().toLocaleString("id-ID", {
+            day:"2-digit",
+            month:"short",
+            year:"numeric",
+            hour:"2-digit",
+            minute:"2-digit"
+        })
+    });
+
+    saveData();
+    render();
+}
+
+/* RECEIPT */
+
+function showReceipt(type, name, amount) {
+    const types = {
+        transfer:"Transfer Saldo",
+        topup:"Top Up Saldo",
+        pay:"Pembayaran"
+    };
+
+    const receipt = {
+        type:types[type],
+        name,
+        amount,
+        date:new Date().toLocaleString("id-ID", {
+            day:"2-digit",
+            month:"long",
+            year:"numeric",
+            hour:"2-digit",
+            minute:"2-digit"
+        }),
+        id:"WP" + Date.now().toString(36).toUpperCase()
+    };
+
+    currentReceipt = receipt;
+
+    document.getElementById("receiptTitle").textContent =
+        type === "transfer" ? "Transfer Berhasil" :
+        type === "topup" ? "Top Up Berhasil" :
+        "Pembayaran Berhasil";
+
+    document.getElementById("receiptAmount").textContent =
+        format(amount);
+
+    document.getElementById("receiptType").textContent =
+        receipt.type;
+
+    document.getElementById("receiptName").textContent =
+        name;
+
+    document.getElementById("receiptNominal").textContent =
+        format(amount);
+
+    document.getElementById("receiptDate").textContent =
+        receipt.date;
+
+    document.getElementById("receiptId").textContent =
+        receipt.id;
+
+    document.getElementById("receiptOverlay").classList.add("show");
+}
+
+function closeReceipt() {
+    document.getElementById("receiptOverlay").classList.remove("show");
+}
+
+function receiptOutsideClose(event) {
+    if (event.target.id === "receiptOverlay") closeReceipt();
+}
+
+function downloadReceipt() {
+    if (!currentReceipt) return;
+
+    const r = currentReceipt;
+
+    const text = `
+WIPETKU
+COMPANY JAWAWIK TEREZEKI
+
+BUKTI TRANSAKSI
+
+Status          : BERHASIL
+Jenis           : ${r.type}
+Nama            : ${r.name}
+Nominal         : ${format(r.amount)}
+Tanggal         : ${r.date}
+ID Transaksi    : ${r.id}
+
+WipetKu · Your balance, your space.
+    `.trim();
+
+    const blob = new Blob([text], {
+        type:"text/plain;charset=utf-8"
+    });
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+
+    a.href = url;
+    a.download = "Bukti-WipetKu-" + r.id + ".txt";
+    a.click();
+
+    URL.revokeObjectURL(url);
+}
+
+/* FORM TRANSAKSI */
+
+document.getElementById("form").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const type = event.target.dataset.type;
+    const name = document.getElementById("name").value.trim();
+
+    const amount = Number(
+        document.getElementById("amount").value.replace(/\./g, "")
+    );
+
+    const message = document.getElementById("message");
+    message.textContent = "";
+
+    if (!name || !Number.isFinite(amount) || amount <= 0) {
+        message.textContent = "Masukkan nama dan jumlah yang valid.";
+        return;
+    }
+
+    if (!Number.isSafeInteger(amount)) {
+        message.textContent = "Jumlah saldo harus berupa angka bulat.";
+        return;
+    }
+
+    if (type === "transfer" || type === "pay") {
+        if (amount > balance) {
+            message.textContent = "Saldo tidak mencukupi.";
+            return;
+        }
+
+        balance -= amount;
+
+        addTransaction(
+            type === "pay"
+                ? "Pembayaran · " + name
+                : "Transfer · " + name,
+            amount,
+            "out"
+        );
+    }
+
+    if (type === "topup") {
+        balance += amount;
+        totalIncome += amount;
+
+        addTransaction("Top Up · " + name, amount, "in");
+    }
+
+    if (type === "request") {
+        message.style.color = "var(--green)";
+        message.textContent = "Permintaan saldo berhasil dibuat.";
+        return;
+    }
+
+    closeModal();
+    showReceipt(type, name, amount);
+});
+
+function clearHistory() {
+    transactions = [];
+    saveData();
+    render();
+}
+</script>
+
+</body>
+</html>
